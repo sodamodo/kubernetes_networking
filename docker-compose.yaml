@@ -1,0 +1,25 @@
+version: '2'
+services:
+  ping:
+    build: ./ping/.
+    # networks:
+    #   -tabletennis
+    command: /ping/app.py
+    depends_on: [pong]
+      # -pong
+
+  pong:
+    build: ./ping/.
+    # networks:
+    #   -tabletennis
+    command: ./pong/app/app.py
+
+
+
+networks:
+  tabletennis:
+      driver: bridge
+
+# networks:
+#   frontend:
+#     driver: bridge
